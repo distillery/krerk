@@ -21,9 +21,10 @@ void NerdWhacker::setup() {
     countCycles = 0;
     bSendSerialMessage = true;
     serial.enumerateDevices();
-    serial.setup(0, 9600);
-    //serial.setup("/dev/ttyACM0", 115200);
+    //serial.setup(0, 9600);
+    serial.setup("/dev/ttyACM1", 115200);
     // GAME
+
     game = new Game();
 }
 
@@ -192,6 +193,7 @@ void NerdWhacker::keyReleased(int key) {
             case 'm': game->hitMultiPlayer(); break; // m = multiplayer
             case 'n': game->hitSinglePlayer(); break; // n = singleplayer
             case 'p': game->hitSinglePlayer(); break; // p = re/play
+            case 't': ofExit(); break; // p = re/play
         }
     }
 }

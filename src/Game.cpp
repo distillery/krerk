@@ -15,8 +15,9 @@ Game::Game() {
     cout << "game.game" << endl;
     
     ofFile file;
+    
     file.open("settings.txt");
-
+    
     if (file.exists()) {
         ofBuffer buffer = file.readToBuffer();
         vector<string> settings = ofSplitString(buffer.getText(), "\n");
@@ -41,7 +42,7 @@ Game::Game() {
         plexi[11] = new Plexi(775, 525, 200);
     }
 
-    
+    cout << "Reading Arduino: " << endl;
     image[0] = "graphics/sig1.jpg";
     value[0] = 1;
     image[1] = "graphics/sig2.jpg";
